@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LibraryManagementSystemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="LibraryManagementSystemEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Books" EntityType="LibraryManagementSystemModel.Book" />
+    <EntitySet Name="Categories" EntityType="LibraryManagementSystemModel.Category" />
+    <EntitySet Name="Departments" EntityType="LibraryManagementSystemModel.Department" />
+    <EntitySet Name="IssuedBooks" EntityType="LibraryManagementSystemModel.IssuedBook" />
+    <EntitySet Name="Members" EntityType="LibraryManagementSystemModel.Member" />
+    <EntitySet Name="Users" EntityType="LibraryManagementSystemModel.User" />
+    <EntitySet Name="Classes" EntityType="LibraryManagementSystemModel.Class" />
+    <EntitySet Name="Students" EntityType="LibraryManagementSystemModel.Student" />
+  </EntityContainer>
+  <EntityType Name="Book">
+    <Key>
+      <PropertyRef Name="BookId" />
+    </Key>
+    <Property Name="BookId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryId" Type="Int32" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="ISBNNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="AvailableBookNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="AuthorName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Addition" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="Type" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Condition" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifyBy" Type="Int32" />
+    <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+    <Property Name="Image" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DepartmentId" Type="Int32" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="Createdby" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifyBy" Type="Int32" />
+    <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="DepartmentId" />
+    </Key>
+    <Property Name="DepartmentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="Createdby" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifyBy" Type="Int32" />
+    <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="IssuedBook">
+    <Key>
+      <PropertyRef Name="IssuedBookId" />
+    </Key>
+    <Property Name="IssuedBookId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MemberId" Type="Int32" />
+    <Property Name="BookId" Type="Int32" />
+    <Property Name="IssuedDate" Type="DateTime" Precision="3" />
+    <Property Name="Deadline" Type="DateTime" Precision="3" />
+    <Property Name="ReturnDate" Type="DateTime" Precision="3" />
+    <Property Name="Issuedfor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Remains" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="BookStatus" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PerdayFine" Type="Int32" />
+    <Property Name="Discount" Type="Int32" />
+    <Property Name="FinePaid" Type="Int32" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="Createdby" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifyBy" Type="Int32" />
+    <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Member">
+    <Key>
+      <PropertyRef Name="MemberId" />
+    </Key>
+    <Property Name="MemberId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StudentId" Type="Int32" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="Createdby" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifyBy" Type="Int32" />
+    <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Age" Type="Int32" />
+    <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifyBy" Type="Int32" />
+    <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Class">
+    <Key>
+      <PropertyRef Name="ClassId" />
+    </Key>
+    <Property Name="ClassId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClassName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifyBy" Type="Int32" />
+    <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="StudentId" />
+    </Key>
+    <Property Name="StudentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StudentName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="RollNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifyBy" Type="Int32" />
+    <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+    <Property Name="ClassId" Type="Int32" />
+  </EntityType>
+</Schema>

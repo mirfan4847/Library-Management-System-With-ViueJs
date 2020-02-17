@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5be441d560e04f7c8bc5ef0fead15f47" Name="Diagram1">
+        <EntityTypeShape EntityType="LibraryManagementSystemModel.Book" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="LibraryManagementSystemModel.Category" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="LibraryManagementSystemModel.Department" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="LibraryManagementSystemModel.IssuedBook" Width="1.5" PointX="2.75" PointY="4.75" />
+        <EntityTypeShape EntityType="LibraryManagementSystemModel.Member" Width="1.5" PointX="4.75" PointY="4.75" />
+        <EntityTypeShape EntityType="LibraryManagementSystemModel.User" Width="1.5" PointX="6.75" PointY="4.75" />
+        <EntityTypeShape EntityType="LibraryManagementSystemModel.Class" Width="1.5" PointX="5.375" PointY="8.75" />
+        <EntityTypeShape EntityType="LibraryManagementSystemModel.Student" Width="1.5" PointX="7.375" PointY="8.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

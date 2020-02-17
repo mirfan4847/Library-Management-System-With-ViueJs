@@ -1,0 +1,86 @@
+﻿<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>test</title>    
+</head>
+<body class="table table-striped">
+    <div id="myApp">
+
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>ISBNNumber</th>
+                <th>AuthorName</th>
+                <th>Action</th>
+            </tr>
+            <tr v-for="item in myGradersList">
+                <td v-else>{{item.Name}}</td>
+                <td>{{item.Type}}</td>
+                <td>{{item.ISBNNumber}}</td>
+                <td>{{item.AuthorName}}</td>
+                <td>
+                    <div>
+                        edit
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/VueJs/vue.js"></script>
+    <script>
+        $(document).ready(function () {
+            app = new Vue({
+                el: '#myApp',
+                data: {
+                    myGradersList: []
+                },
+                methods: {
+                }
+            });
+
+            $.get("/Book/GetAllBook", function (result) {
+                debugger;
+                app.myGradersList = result;
+            });
+        });
+    </script>
+
+    @*<script>
+        var app;
+        $(document).ready(function () {
+            alert("test");
+            debugger;
+            app = new Vue({
+                el: '#myApp',
+                data: {
+                    myGradersList: []
+                },
+                methods: {
+                }
+            });
+            //Ednd App           
+
+            //AjaxGet("/Grades/LoadAll", { tt1: "tt1", tt2: "tt2" }, function (result) {
+            //    app.navactive = "Grades";
+            //    app.myGradersList = result;
+            //    setTimeout(function () {
+
+            //        app.navactive = "Grades2";
+            //    }, 10000);
+            //});
+        });
+    </script>*@
+</body>
+</html>
+
+

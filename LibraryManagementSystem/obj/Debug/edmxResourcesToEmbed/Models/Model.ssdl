@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LibraryManagementSystemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Book">
+    <Key>
+      <PropertyRef Name="BookId" />
+    </Key>
+    <Property Name="BookId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryId" Type="int" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="500" />
+    <Property Name="ISBNNumber" Type="varchar" MaxLength="100" />
+    <Property Name="AvailableBookNumber" Type="varchar" MaxLength="100" />
+    <Property Name="AuthorName" Type="varchar" MaxLength="100" />
+    <Property Name="Addition" Type="varchar" MaxLength="100" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="Type" Type="varchar" MaxLength="100" />
+    <Property Name="Condition" Type="varchar" MaxLength="100" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifyBy" Type="int" />
+    <Property Name="ModifyDate" Type="datetime" />
+    <Property Name="Image" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="DepartmentId" Type="int" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="Createdby" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifyBy" Type="int" />
+    <Property Name="ModifyDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Class">
+    <Key>
+      <PropertyRef Name="ClassId" />
+    </Key>
+    <Property Name="ClassId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClassName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifyBy" Type="int" />
+    <Property Name="ModifyDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="DepartmentId" />
+    </Key>
+    <Property Name="DepartmentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="Createdby" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifyBy" Type="int" />
+    <Property Name="ModifyDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="IssuedBook">
+    <Key>
+      <PropertyRef Name="IssuedBookId" />
+    </Key>
+    <Property Name="IssuedBookId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MemberId" Type="int" />
+    <Property Name="BookId" Type="int" />
+    <Property Name="IssuedDate" Type="datetime" />
+    <Property Name="Deadline" Type="datetime" />
+    <Property Name="ReturnDate" Type="datetime" />
+    <Property Name="Issuedfor" Type="varchar" MaxLength="100" />
+    <Property Name="Remains" Type="varchar" MaxLength="100" />
+    <Property Name="BookStatus" Type="varchar" MaxLength="100" />
+    <Property Name="PerdayFine" Type="int" />
+    <Property Name="Discount" Type="int" />
+    <Property Name="FinePaid" Type="int" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="Createdby" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifyBy" Type="int" />
+    <Property Name="ModifyDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Member">
+    <Key>
+      <PropertyRef Name="MemberId" />
+    </Key>
+    <Property Name="MemberId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StudentId" Type="int" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="Createdby" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifyBy" Type="int" />
+    <Property Name="ModifyDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="StudentId" />
+    </Key>
+    <Property Name="StudentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StudentName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="RollNo" Type="varchar" MaxLength="50" />
+    <Property Name="PhoneNumber" Type="varchar" MaxLength="15" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+    <Property Name="Address" Type="varchar" MaxLength="250" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifyBy" Type="int" />
+    <Property Name="ModifyDate" Type="datetime" />
+    <Property Name="ClassId" Type="int" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Age" Type="int" />
+    <Property Name="Gender" Type="varchar" MaxLength="50" />
+    <Property Name="Phone" Type="varchar" MaxLength="50" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifyBy" Type="int" />
+    <Property Name="ModifyDate" Type="datetime" />
+  </EntityType>
+  <EntityContainer Name="LibraryManagementSystemModelStoreContainer">
+    <EntitySet Name="Book" EntityType="Self.Book" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Class" EntityType="Self.Class" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IssuedBook" EntityType="Self.IssuedBook" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Member" EntityType="Self.Member" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

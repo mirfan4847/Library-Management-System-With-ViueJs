@@ -1,0 +1,72 @@
+﻿@model LibraryManagementSystem.ViewModel.MemberViewModel
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>test</title>
+</head>
+<body class="table table-striped">
+    @Html.ActionLink("Add Category", "AddCategory", "Category")
+    <div id="myApp">
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>DepartmentName</th>
+                    <th>Book Count</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="item in myCategorytList">
+                    <td>@counter</td>
+                    <td>{{item.Name}}</td>
+                    <td>{{item.DepartmentName}}</td>
+                    <td>{{item.Books}}</td>
+                    <td>
+                        @*<a v-bind:href="/Category/Edit" class="btn btn-primary">
+                                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                            </a>*@
+
+                    </td>
+                    <td>
+                        &nbsp;&nbsp;
+                        &nbsp;&nbsp;
+                    </td>
+                    <td>
+                        <a href="/Category/Deactive" class="btn btn-danger">
+
+                            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                        </a>
+                    </td>
+                    @counter++
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+
+<script>
+    var app;
+    $(document).ready(function () {
+        app = new Vue({
+            el: '#myApp',
+            data: {
+                myCategorytList: []
+            },
+            methods: {
+            }
+        });
+
+        // end app
+        $.get("/Category/GetAllCategory", function (data) {
+            app.myCategorytList = data;
+        });
+    });
+</script>
+
+

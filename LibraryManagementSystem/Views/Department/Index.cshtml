@@ -1,0 +1,59 @@
+﻿
+     <div id="myApp">
+        <table>
+            <thead>
+                <tr>
+                    <th>DepartmentId</th>
+                    <th>Name</th>
+                    <td>Action</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="item in myDepartmentList">
+                    <td>{{item.DepartmentId}}</td>
+                    <td>{{item.Name}}</td>
+                    <td>
+                        <table>
+                            <tr>
+                                <td>
+                                    <a href="/Department/Edit/" class="btn btn-primary">
+
+                                        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                                    </a>
+                                </td>
+                                <td>
+                                    &nbsp;&nbsp;
+                                    &nbsp;&nbsp;
+                                </td>
+                                
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+<script src="~/Scripts/VueJs/vue.js"></script>
+
+<script>
+    var app;
+    $(document).ready(function () {
+        app = new Vue({
+            el: '#myApp',
+            data: {
+                myDepartmentList: []
+            },
+            methods: {
+            }
+        });
+
+        // end app
+        $.get("/Department/GetAllDepartment", function (data) {
+            app.myDepartmentList = data;
+        });
+    });
+</script>
+
+
